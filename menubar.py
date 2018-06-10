@@ -2,6 +2,7 @@
 import time
 import os
 import webbrowser
+import urllib
 option='''
 press 1 : current date and time
 press 2 : To create a file
@@ -15,7 +16,7 @@ press 9 : To check all connected IP in your network
 '''
 print(option)
 select = raw_input("kindly press atleat one")
-if select == '1' :
+if select == '1'   :
         time = time.ctime().split()
         print "displaying current date&time" +time[3],time[1],time[2]
 
@@ -23,7 +24,7 @@ elif select == '2' :
         path = "/home/adarsh/Desktop/"
         filename=raw_input("enter the name of file")
         os.system('touch ' +path+filename)
-        print "your file is created"
+        print "your file is created in the Desktop"
 
 elif select == '3' :
         path = "/home/adarsh/Desktop/"
@@ -39,7 +40,7 @@ elif select == '4' :
 elif select == '5' :
         print "turn off your application your system is going to be off"
         time.sleep(2)
-        msg1 = "fr se bol rha hu last chance"
+        msg1 = "again giving you last chance"
         os.system('echo '+msg1+' | festival --tts')
         time.sleep(2)
         os.system("pkill -KILL -u " + os.getlogin())
@@ -52,12 +53,22 @@ elif select == '6' :
         time.sleep(2)
         os.system('poweroff')
 
+elif select == '7' :
+	print "checking internet connection in your lappi"
+	try    :
+		urllib.urlopen('https://www.google.com')
+		print "connected"
+	except :
+		print "not connected"
+
 elif select == '8' :
         print "opening watsapp app on google"
         time.sleep(2)
         webbrowser.open_new_tab('https://www.watsapp.com')
 
+elif select == '9' :
 
-else :
-        print "chutiya h ka be"
+    	print "9"
+else               :
+         print "wrong option"
 
